@@ -1,4 +1,4 @@
-import random
+from random import choice
 
 testBoards = [
     ["X", 1, "O", "X", 4, "X", "O", "O", 8],
@@ -34,7 +34,7 @@ def determineWinner(board, player):
    
 def minimax(currBoard, currPlayer, alpha, beta, depth = -1, run = 0, aiMark = '', humanMark = ''):
     if currBoard == [0, 1, 2, 3, 4, 5, 6, 7, 8]:
-        return random.choice(currBoard), 1
+        return choice(currBoard), 1
     if depth == -1:
         aiMark = currPlayer
         humanMark = changePlayer(aiMark)
@@ -42,7 +42,6 @@ def minimax(currBoard, currPlayer, alpha, beta, depth = -1, run = 0, aiMark = ''
     run += 1
 
     availCells = emptyCells(currBoard)
-    random.shuffle(availCells)
 
     if determineWinner(currBoard, humanMark):
         return -10, run
@@ -83,3 +82,10 @@ def minimax(currBoard, currPlayer, alpha, beta, depth = -1, run = 0, aiMark = ''
    
     if currPlayer == humanMark:
         return lowestScore, run
+    
+def get_move(board: list, ai_mark: str):
+    board = board.copy()
+    for i in range(len(board)):
+        if board[i] == '':
+            board[i] = i
+    return minimax(board, ai_mark, -300, 300)[0]
