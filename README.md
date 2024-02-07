@@ -1,10 +1,9 @@
-# Tic Tac Toe Ai by tobyrachner
-Do you want to spice up your Tic Tac Toe game with an unbeatable ai? In that case your in the right place!
-This package comes with a function, calculating the optimal move from a board position using the minimax algorithm, as well as a console based version of the game where you can play the ai.
+# Tic Tac Toe Ai
+A console based Tic Tac Toe game including an unbeatbale AI using the minimax algorithm.
 
 ### Usage
-to use the project run:
-
-
-
-https://opengameart.org/content/chess-pieces-and-board-squares
+To play the game run the `game.py` file or the `main()` function. <br />
+If you want to add the algorithm to your own project, you can download the `minimax.py` file and run `get_move()`. <br />
+`get_move()` takes two arguments:
+ - the current board state as a list of strings (e.g. ['', 'X', '', 'O' ...])
+ - the symbol of the AI player (either 'X' or 'O')
